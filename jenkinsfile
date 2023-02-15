@@ -3,8 +3,8 @@ pipeline{
 
     stages{
         stage('clean workspace'){
-            steps{
-                cleanWS()
+            steps {
+                cleanWs()
             }
         }
         stage('git checkout') {
