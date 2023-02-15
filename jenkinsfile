@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    tools {
+        Maven "maven"
+    }
 
     stages{
         stage('clean workspace'){
@@ -10,6 +13,11 @@ pipeline{
         stage('git checkout') {
             steps {
                 git credentialsId: 'git-creds', url: 'https://github.com/surajntech/foodies.git'
+            }
+        }
+        stage('maven test') {
+            steps {
+                sh 'mvn test'
             }
         }
     }
