@@ -12,6 +12,11 @@ pipeline {
                  git credentialsId: 'git-creds', url: 'https://github.com/surajntech/foodies.git'
             }
         }
+	stage ('mvn build') {
+            steps {
+                sh 'mvn clean verify'
+            }
+        }
 
     }
 }
